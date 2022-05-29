@@ -1,5 +1,20 @@
 #include "biblioteka.h"
 #include "prototipai.h"
+data::~data() = default;
+
+data& data::operator=(const data & dataa) {
+	if (&dataa == this) return *this;
+	vardas = dataa.vardas;
+	pavarde = dataa.pavarde;
+	paz = dataa.paz;
+	egz = dataa.egz;
+	rezultatas = dataa.rezultatas;
+	mediana = dataa.mediana;
+	rezultatasm = dataa.rezultatasm;
+	vidurkis = dataa.vidurkis;
+	return *this;
+
+}
 
 void skaitymas(vector<data>& temp) {
 

@@ -33,9 +33,9 @@ using std::sort;
 using std::stringstream;
 using std::deque;
 
-class data {
-private:
 
+
+class data{
 public:
 	string vardas = "", pavarde = "";
 	vector<int>paz;
@@ -44,6 +44,8 @@ public:
 	double mediana = 0;
 	double rezultatasm = 0;
 	double vidurkis = 0;
+	~data();
+	data& operator = (const data& dataa);
 
 };
 
