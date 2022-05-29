@@ -2,10 +2,22 @@
 #include "prototipai.h"
 data::~data() = default;
 
+
+data::data(const data& dataa) {
+	vardas2 = dataa.vardas2;
+	pavarde2 = dataa.pavarde2;
+	paz = dataa.paz;
+	egz = dataa.egz;
+	rezultatas = dataa.rezultatas;
+	mediana = dataa.mediana;
+	rezultatasm = dataa.rezultatasm;
+	vidurkis = dataa.vidurkis;
+}
+
 data& data::operator=(const data & dataa) {
 	if (&dataa == this) return *this;
-	vardas = dataa.vardas;
-	pavarde = dataa.pavarde;
+	vardas2 = dataa.vardas2;
+	pavarde2 = dataa.pavarde2;
 	paz = dataa.paz;
 	egz = dataa.egz;
 	rezultatas = dataa.rezultatas;
@@ -15,27 +27,30 @@ data& data::operator=(const data & dataa) {
 	return *this;
 
 }
+const string& data::vardas() const { return vardas2; }
+const string& data::pavarde() const { return pavarde2; }
 
 void skaitymas(vector<data>& temp) {
 
 	std::ifstream  fd("kursiokai.txt");
-
+	
 
 	string eil;
 	stringstream buf;
 	int pazymys;
 	int k = 0;
-
+	string vardas, pavarde;
 	buf << fd.rdbuf();
 	fd.close();
 
-
+	data laik(vardas, pavarde);
 	getline(buf, eil);
-	data laik;
+
+
 	while (getline(buf, eil)) {
 		bool error = false;
 		std::istringstream s(eil);
-		s >> laik.vardas >> laik.pavarde;
+		s >> vardas >> pavarde;
 
 		while (s >> pazymys) {
 			k++;
@@ -78,12 +93,13 @@ void skaitymas(vector<data>& temp) {
 }
 void FailoIsvedimas(vector<data>& temp, vector<data>& temp2) {
 	//	auto start = high_resolution_clock::now();
-		std::sort(temp.begin(), temp.end(), [](data a, data b) {
-			return a.vardas < b.vardas;
-			});
-		std::sort(temp2.begin(), temp2.end(), [](data a, data b) {
-			return a.vardas < b.vardas;
-			});
+	//	std::sort(temp.begin(), temp.end(), [](data a, data b) {
+	//		return a.vardas < b.vardas;
+	//		});
+	//	std::sort(temp2.begin(), temp2.end(), [](data a, data b) {
+	//		return a.vardas < b.vardas;
+	//		});
+
 	int kiekis = temp.size();
 	std::ofstream fr("vargsiukai.txt");
 	std::ofstream out("kietiakai.txt");
@@ -92,62 +108,66 @@ void FailoIsvedimas(vector<data>& temp, vector<data>& temp2) {
 	out << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavarde" << std::left << std::setw(20) << "Galutinis(vid.)" << std::left << std::setw(20) << "Galutinis(med.)" << std::endl;
 	out << "---------------------------------------------------------------------------" << std::endl;
 	for (int i = 0; i < kiekis; i++) {
-		if(temp[i].rezultatas>5.0)
-		out << std::left << std::setw(20) << temp[i].vardas << std::left << std::setw(20) << temp[i].pavarde << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatasm << std::endl;
+		if (temp[i].rezultatas > 5.0)
+			out << std::left << std::setw(20) << temp[i].vardas() << std::left << std::setw(20) << temp[i].pavarde() << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatasm << std::endl;
 
 	}
 	kiekis = temp2.size();
 	for (int i = 0; i < kiekis; i++) {
 		if (temp[i].rezultatas < 5.0)
-			fr << std::left << std::setw(20) << temp2[i].vardas << std::left << std::setw(20) << temp2[i].pavarde << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatasm << std::endl;
-		
+			fr << std::left << std::setw(20) << temp2[i].vardas() << std::left << std::setw(20) << temp2[i].pavarde() << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatasm << std::endl;
+
 	}
 }
-void generacija(vector<data>&temp) {
-			int n;
-			cout << "kiek norite studentu sugeneruoti" << std::endl;
-			cin >> n;
-			int pazymys;
-			data laik;
-			std::ofstream fr("kursiokai.txt");
-			for (int i = 0; i < n; i++) {
-				laik.vardas = "Vardas" + std::to_string(i + 1);
-				laik.pavarde = "Pavarde" + std::to_string(i + 1);
-				fr << laik.vardas << " " << laik.pavarde;
-				fr << " ";
-				for (int j = 0; j < 5; j++) {
-					pazymys = rand() % 10 + 1;
-					laik.paz.push_back(pazymys);
-					laik.vidurkis = laik.vidurkis + pazymys;
-					
-					fr << pazymys<<" ";
-				}
-				pazymys = rand() % 10 + 1;
-				laik.egz = pazymys;
-				fr << laik.egz<<" ";
-				fr <<" "<< std::endl;
-				laik.paz.clear();
+void generacija(vector<data>& temp) {
+	int n;
+	cout << "kiek norite studentu sugeneruoti" << std::endl;
+	cin >> n;
+	int pazymys;
+	string vardas, pavarde;
+	data laik(vardas, pavarde);
+	std::ofstream fr("kursiokai.txt");
+	for (int i = 0; i < n; i++) {
+		vardas = "Vardas" + std::to_string(i + 1);
+		pavarde = "Pavarde" + std::to_string(i + 1);
+		fr << vardas << " " << pavarde;
+		fr << " ";
+		for (int j = 0; j < 5; j++) {
+			pazymys = rand() % 10 + 1;
+			laik.paz.push_back(pazymys);
+			laik.vidurkis = laik.vidurkis + pazymys;
 
-			}
+			fr << pazymys << " ";
+		}
+		pazymys = rand() % 10 + 1;
+		laik.egz = pazymys;
+		fr << laik.egz << " ";
+		fr << " " << std::endl;
+		laik.paz.clear();
+
+	}
 }
 void skirstymas(vector<data>& temp, vector<data>& temp2) {
-	data laik;
+	string vardas, pavarde;
+	data laik(vardas, pavarde);
 	int n = temp.size();
 	for (int i = 0; i < n; i++) {
 
 		if (temp[i].rezultatas < 5.0) {
-			laik.vardas = "Vardas" + std::to_string(i + 1);
-			laik.pavarde = "Pavarde" + std::to_string(i + 1);
+			vardas = "Vardas" + std::to_string(i + 1);
+			pavarde = "Pavarde" + std::to_string(i + 1);
 			laik.rezultatas = temp[i].rezultatas;
 			laik.rezultatasm = temp[i].rezultatasm;
-			temp2.push_back(laik);		
+			temp2.push_back(laik);
 		}
 	}
 	for (int i = 0; i < n; i++) {
 		if (temp[i].rezultatas < 5.0) {
-			temp.erase(temp.begin() + i, temp.begin() + i );
+			temp.erase(temp.begin() + i, temp.begin() + i);
 			n--;
 			temp.resize(n);
 		}
 	}
+
 }
+

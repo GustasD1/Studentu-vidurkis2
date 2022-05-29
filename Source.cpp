@@ -8,7 +8,8 @@
 int main() {
 	vector<data> sarasas;
 	vector<data> vargsiukai;
-	data laik;
+	string vardas, pavarde;
+	data laik(vardas, pavarde);
 	int n;
 	int sk;
 	int a;
@@ -23,8 +24,8 @@ int main() {
 	}
 	if (a == 1) {
 		skaitymas(sarasas);
-		skirstymas(sarasas,vargsiukai);
-		sarasas.clear();
+	skirstymas(sarasas,vargsiukai);
+	sarasas.clear();
 		FailoIsvedimas(sarasas,vargsiukai);
 	}
 	else if (a==2) {
@@ -62,7 +63,7 @@ int main() {
 		}
 		sarasas.reserve(sk);
 		for (int i = 0; i < sk; i++) {
-			ivestis(laik, n);
+		ivestis(laik, n);
 			apskaiciavimas(laik, n);
 
 			sarasas.push_back(laik);

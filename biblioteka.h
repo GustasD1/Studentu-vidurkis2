@@ -33,20 +33,43 @@ using std::sort;
 using std::stringstream;
 using std::deque;
 
-
-
-class data{
+class zmogus {
+protected:
+    string vardas2;
+    string pavarde2;
 public:
-	string vardas = "", pavarde = "";
+    explicit zmogus() {
+        vardas2 = " ";
+        pavarde2 = " ";
+    };
+    explicit zmogus(const string& vardas, const string& pavarde) {
+        vardas2 = vardas;
+        pavarde2 = pavarde;
+    };
+    virtual const string& vardas() const = 0;
+    virtual const string& pavarde() const = 0;
+
+
+};
+
+
+
+class data: public zmogus{
+public:
 	vector<int>paz;
 	int egz = 0;
 	double rezultatas = 0;
 	double mediana = 0;
 	double rezultatasm = 0;
 	double vidurkis = 0;
+
 	~data();
+   data(const data& dataa);
 	data& operator = (const data& dataa);
 
+    explicit data(const string& vardas, const string& pavarde):zmogus(vardas, pavarde) {};
+    const string& vardas() const override;
+    const string& pavarde() const override;
 };
 
 

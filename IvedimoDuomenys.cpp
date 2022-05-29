@@ -1,4 +1,4 @@
-#include "biblioteka.h"
+/*#include "biblioteka.h"
 #include "prototipai.h"
 
 void ivestis(data& temp, int& n) {
@@ -144,3 +144,4 @@ void isvedimas(const data& temp)
 
 
 }
+*/
