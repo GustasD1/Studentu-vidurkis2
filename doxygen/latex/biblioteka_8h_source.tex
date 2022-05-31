@@ -1,0 +1,108 @@
+\hypertarget{biblioteka_8h_source}{}\doxysection{biblioteka.\+h}
+\label{biblioteka_8h_source}\index{C:/Users/Administrator/source/repos/v1.1/v2.0 vector/Studentu Vidurkis (Vektoriai)/biblioteka.h@{C:/Users/Administrator/source/repos/v1.1/v2.0 vector/Studentu Vidurkis (Vektoriai)/biblioteka.h}}
+\mbox{\hyperlink{biblioteka_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef biblioteka\_H\_INCLUDE}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define biblioteka\_H\_INCLUDE}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <sstream>} }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{using namespace }std::chrono; }
+\DoxyCodeLine{28 \textcolor{keyword}{using }std::cout;}
+\DoxyCodeLine{29 \textcolor{keyword}{using }std::cin;}
+\DoxyCodeLine{30 \textcolor{keyword}{using }std::string;}
+\DoxyCodeLine{31 \textcolor{keyword}{using }std::vector;}
+\DoxyCodeLine{32 \textcolor{keyword}{using }std::sort;}
+\DoxyCodeLine{33 \textcolor{keyword}{using }std::stringstream;}
+\DoxyCodeLine{34 \textcolor{keyword}{using }std::deque;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{classdata}{data}}\{}
+\DoxyCodeLine{39 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \textcolor{comment}{//studentu klase}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{string} \mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}} = \textcolor{stringliteral}{"{}"{}}, \mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{42     vector<int>\mbox{\hyperlink{classdata_a747ef39d64f283c574879ad876f1a09b}{paz}};}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} \mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}} = 0;}
+\DoxyCodeLine{44     \textcolor{keywordtype}{double} \mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}} = 0;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{double} \mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}} = 0;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{double} \mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}} = 0;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{double} \mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}} = 0;}
+\DoxyCodeLine{48     \textcolor{comment}{//konstruktorius}}
+\DoxyCodeLine{49     \mbox{\hyperlink{classdata_aad3355ddfb4e1a1212328b01ac441766}{data}}() \{}
+\DoxyCodeLine{50         \mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{51         \mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}}=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{52         \mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}}=0;}
+\DoxyCodeLine{53         \mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}}=0;}
+\DoxyCodeLine{54         \mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}}=0;}
+\DoxyCodeLine{55         \mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}}=0;}
+\DoxyCodeLine{56         \mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}}=0;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59     \textcolor{comment}{//destruktorius}}
+\DoxyCodeLine{60     \mbox{\hyperlink{classdata_ac18b8a36d33f78bb65d09b885657427d}{\string~data}}();}
+\DoxyCodeLine{61     \textcolor{comment}{//kopijavimo konstruktorius}}
+\DoxyCodeLine{62     \mbox{\hyperlink{classdata_aa0c119778212bbb8df53892ca2ef37ef}{data}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdata}{data}}\& dataa) \{}
+\DoxyCodeLine{63         \mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}} = dataa.\mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}};}
+\DoxyCodeLine{64         \mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}} = dataa.\mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}};}
+\DoxyCodeLine{65         \mbox{\hyperlink{classdata_a747ef39d64f283c574879ad876f1a09b}{paz}} = dataa.\mbox{\hyperlink{classdata_a747ef39d64f283c574879ad876f1a09b}{paz}};}
+\DoxyCodeLine{66         \mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}} = dataa.\mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}};}
+\DoxyCodeLine{67         \mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}} = dataa.\mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}};}
+\DoxyCodeLine{68         \mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}} = dataa.\mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}};}
+\DoxyCodeLine{69         \mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}} = dataa.\mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}};}
+\DoxyCodeLine{70         \mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}} = dataa.\mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}};}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72     \textcolor{comment}{//Priskirimo konstruktorius}}
+\DoxyCodeLine{73     \mbox{\hyperlink{classdata}{data}}\& \mbox{\hyperlink{classdata_a587f62f24f2c19f042f0c8a58a26935a}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdata}{data}}\& dataa) \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{if} (\&dataa == \textcolor{keyword}{this}) \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{75         \mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}} = dataa.\mbox{\hyperlink{classdata_a70bba4f50f93310adc10d45911546a5f}{vardas}};}
+\DoxyCodeLine{76         \mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}} = dataa.\mbox{\hyperlink{classdata_aa16377ae4dfbefdc7e090751441b5ea4}{pavarde}};}
+\DoxyCodeLine{77         \mbox{\hyperlink{classdata_a747ef39d64f283c574879ad876f1a09b}{paz}} = dataa.\mbox{\hyperlink{classdata_a747ef39d64f283c574879ad876f1a09b}{paz}};}
+\DoxyCodeLine{78         \mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}} = dataa.\mbox{\hyperlink{classdata_a7b7ad4d6f1c8cf4336d2d11fb68c15c6}{egz}};}
+\DoxyCodeLine{79         \mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}} = dataa.\mbox{\hyperlink{classdata_ae431f2f36bdac0644a5ad16b2044156e}{rezultatas}};}
+\DoxyCodeLine{80         \mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}} = dataa.\mbox{\hyperlink{classdata_ae811d731aceab1d5ff75b816f04ef289}{mediana}};}
+\DoxyCodeLine{81         \mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}} = dataa.\mbox{\hyperlink{classdata_a42b4d0f2898a17531ec59340ba135028}{rezultatasm}};}
+\DoxyCodeLine{82         \mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}} = dataa.\mbox{\hyperlink{classdata_a3751cc650b8eb4b40bff28dd7e897378}{vidurkis}};}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     \textcolor{comment}{/*}}
+\DoxyCodeLine{87 \textcolor{comment}{    * Ivedimo funkcija}}
+\DoxyCodeLine{88 \textcolor{comment}{    */}}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a15e5b123d158eadd299fd75849f441a2}{ivestis}}(\mbox{\hyperlink{classdata}{data}}\& temp, \textcolor{keywordtype}{int}\& n);}
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a4cd55da11b488e284a1f85ca582c6eb9}{isvedimas}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdata}{data}}\& temp);}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a680676141d3e8487330d9d03017c4be8}{apskaiciavimas}}(\mbox{\hyperlink{classdata}{data}}\& temp, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a16da5c70cc334d4b2108b5d0e533544c}{skaitymas}}(vector<data>\& temp);}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a52e3c8b8bfb5079c61a02550e99c80c0}{FailoIsvedimas}}(vector<data>\& temp, vector<data>\& temp2);}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a08afad4baa9e2392c1864bca0510bfd6}{generacija}}(vector<data>\& temp);}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classdata_a21419e31024a1e9ffb2dd78272f8ad1b}{skirstymas}}(vector<data>\& temp, vector<data>\& temp2);}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
