@@ -2,19 +2,7 @@
 #include "prototipai.h"
 data::~data() = default;
 
-data& data::operator=(const data & dataa) {
-	if (&dataa == this) return *this;
-	vardas = dataa.vardas;
-	pavarde = dataa.pavarde;
-	paz = dataa.paz;
-	egz = dataa.egz;
-	rezultatas = dataa.rezultatas;
-	mediana = dataa.mediana;
-	rezultatasm = dataa.rezultatasm;
-	vidurkis = dataa.vidurkis;
-	return *this;
 
-}
 
 void skaitymas(vector<data>& temp) {
 
@@ -98,7 +86,7 @@ void FailoIsvedimas(vector<data>& temp, vector<data>& temp2) {
 	}
 	kiekis = temp2.size();
 	for (int i = 0; i < kiekis; i++) {
-		if (temp[i].rezultatas < 5.0)
+		if (temp2[i].rezultatas < 5.0)
 			fr << std::left << std::setw(20) << temp2[i].vardas << std::left << std::setw(20) << temp2[i].pavarde << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatasm << std::endl;
 		
 	}
@@ -136,8 +124,8 @@ void skirstymas(vector<data>& temp, vector<data>& temp2) {
 	for (int i = 0; i < n; i++) {
 
 		if (temp[i].rezultatas < 5.0) {
-			laik.vardas = "Vardas" + std::to_string(i + 1);
-			laik.pavarde = "Pavarde" + std::to_string(i + 1);
+			laik.vardas = temp[i].vardas;
+			laik.pavarde = temp[i].pavarde;
 			laik.rezultatas = temp[i].rezultatas;
 			laik.rezultatasm = temp[i].rezultatasm;
 			temp2.push_back(laik);		
@@ -150,4 +138,6 @@ void skirstymas(vector<data>& temp, vector<data>& temp2) {
 			temp.resize(n);
 		}
 	}
+	
+
 }

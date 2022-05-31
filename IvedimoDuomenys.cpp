@@ -6,45 +6,18 @@ void ivestis(data& temp, int& n) {
 	int r;
 	cout << "Iveskite studento varda" << std::endl;
 	cin >> temp.vardas;
-	while (std::find_if(temp.vardas.begin(), temp.vardas.end(), std::isdigit) != temp.vardas.end())
-	{
-		cout << "skaiciai neleidziami, veskite is naujo" << std::endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> temp.vardas;
 
-
-	}
 
 	cout << "Iveskite studento pavarde" << std::endl;
 	cin >> temp.pavarde;
-	while (std::find_if(temp.pavarde.begin(), temp.pavarde.end(), std::isdigit) != temp.pavarde.end())
-	{
-		cout << "skaiciai neleidziami, veskite is naujo" << std::endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> temp.pavarde;
-
-
-	}
 
 	cout << "Iveskite kiek pazymiu turi studentas" << std::endl;
 	cin >> n;
 	temp.paz.resize(n);
-	while (!cin) {
-		cout << "Prasome ivesti skaiciu" << std::endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> n;
-	}
+
 	cout << "Ar norite jog pazymiai buti generuojami atsitiktinai? Jei taip iveskite 1, jei ne iveskite 0" << std::endl;
 	cin >> pas;
-	while (!cin || pas != 0 && pas != 1) {
-		cout << "Prasome ivesti skaiciu 0 arba 1" << std::endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> pas;
-	}
+
 	if (pas == 1) {
 		srand(time(NULL));
 		for (int i = 0; i < n; i++) {
@@ -61,23 +34,13 @@ void ivestis(data& temp, int& n) {
 		for (int i = 0; i < n; i++) {
 			cout << "Iveskite " << i + 1 << " -a(i) pazymi";
 			cin >> temp.paz[i];
-			while (!cin) {
-				cout << "Prasome ivesti skaiciu" << std::endl;
-				cin.clear();
-				cin.ignore(256, '\n');
-				cin >> temp.paz[i];
-			}
+
 
 		}
 
 		cout << "Iveskite egzamino pazymi: ";
 		cin >> temp.egz;
-		while (!cin) {
-			cout << "Prasome ivesti skaiciu" << std::endl;
-			cin.clear();
-			cin.ignore(256, '\n');
-			cin >> temp.egz;
-		}
+
 	}
 
 }

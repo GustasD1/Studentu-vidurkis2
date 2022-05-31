@@ -45,8 +45,19 @@ public:
 	double rezultatasm = 0;
 	double vidurkis = 0;
 	~data();
-	data& operator = (const data& dataa);
+	data& operator=(const data& dataa) {
+		if (&dataa == this) return *this;
+		vardas = dataa.vardas;
+		pavarde = dataa.pavarde;
+		paz = dataa.paz;
+		egz = dataa.egz;
+		rezultatas = dataa.rezultatas;
+		mediana = dataa.mediana;
+		rezultatasm = dataa.rezultatasm;
+		vidurkis = dataa.vidurkis;
+		return *this;
 
+	}
 };
 
 

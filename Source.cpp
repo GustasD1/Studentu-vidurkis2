@@ -80,5 +80,6 @@ int main() {
 	auto endas = high_resolution_clock::now();
 	duration<double> differencija = endas - startas;
 	cout<<"visos programos veikimo laikas "<< differencija.count() << "s" << std::endl;
+	system("pause");
 
 }
