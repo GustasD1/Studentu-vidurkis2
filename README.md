@@ -35,5 +35,7 @@ v1.2
 Implementuota Rule of three metodas
 
 v2.0
+
 Sukūrtas setup failas
+
 Sukūrta doxygen dokumentacija
