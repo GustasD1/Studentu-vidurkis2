@@ -18,7 +18,6 @@ void skaitymas(vector<data>& temp) {
 	fd.close();
 
 
-	getline(buf, eil);
 	data laik;
 	while (getline(buf, eil)) {
 		bool error = false;
@@ -80,13 +79,13 @@ void FailoIsvedimas(vector<data>& temp, vector<data>& temp2) {
 	out << std::left << std::setw(20) << "Vardas" << std::left << std::setw(20) << "Pavarde" << std::left << std::setw(20) << "Galutinis(vid.)" << std::left << std::setw(20) << "Galutinis(med.)" << std::endl;
 	out << "---------------------------------------------------------------------------" << std::endl;
 	for (int i = 0; i < kiekis; i++) {
-		if(temp[i].rezultatas>5.0)
+	
 		out << std::left << std::setw(20) << temp[i].vardas << std::left << std::setw(20) << temp[i].pavarde << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp[i].rezultatasm << std::endl;
 
 	}
 	kiekis = temp2.size();
 	for (int i = 0; i < kiekis; i++) {
-		if (temp2[i].rezultatas < 5.0)
+	
 			fr << std::left << std::setw(20) << temp2[i].vardas << std::left << std::setw(20) << temp2[i].pavarde << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatas << std::left << std::setw(20) << std::fixed << std::setprecision(2) << temp2[i].rezultatasm << std::endl;
 		
 	}
@@ -124,20 +123,12 @@ void skirstymas(vector<data>& temp, vector<data>& temp2) {
 	for (int i = 0; i < n; i++) {
 
 		if (temp[i].rezultatas < 5.0) {
-			laik.vardas = temp[i].vardas;
-			laik.pavarde = temp[i].pavarde;
-			laik.rezultatas = temp[i].rezultatas;
-			laik.rezultatasm = temp[i].rezultatasm;
-			temp2.push_back(laik);		
+			temp2.push_back(temp[i]);
 		}
 	}
-	for (int i = 0; i < n; i++) {
-		if (temp[i].rezultatas < 5.0) {
-			temp.erase(temp.begin() + i, temp.begin() + i );
-			n--;
-			temp.resize(n);
-		}
-	}
-	
 
+	temp.erase(std::remove_if(temp.begin(), temp.end(), maziau), temp.end());
+}
+bool maziau(const data& temp) {
+	return temp.rezultatas < 5.0;
 }
