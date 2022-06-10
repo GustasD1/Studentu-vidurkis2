@@ -45,7 +45,16 @@ public:
 	double mediana = 0;
 	double rezultatasm = 0;
 	double vidurkis = 0;
-	
+	//konstruktorius
+	data() {
+		vardas="";
+		pavarde="";
+		egz=0;
+		rezultatas=0;
+		mediana=0;
+		rezultatasm=0;
+		vidurkis=0;
+
 }
 	//destruktorius
 	~data();
@@ -74,7 +83,9 @@ public:
 		return *this;
 
 	}
-
+	/*
+	* Ivedimo funkcija
+	*/
 	void ivestis(data& temp, int& n);
 	void isvedimas(const data& temp);
 	void apskaiciavimas(data& temp, int n);
